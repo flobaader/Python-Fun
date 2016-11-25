@@ -8,19 +8,22 @@ import ArrayTools
 def GenerateSudoku():
     Sudoku = ArrayTools.nullBased2DArray(9)
 
-    succesfull = 0;
+    succesfull = 0
+    countTries = 0
 
     while succesfull < 1:
         for x in range (0,9):
             for y in range(0,9):
-                cands = CandidateChecker.getCandidates(Sudoku)[x][y]
+                cands = CandidateChecker.getCandidates(Sudoku, x, y)
 
                 #Check if there are no more candidates
                 if(len(cands) == 0):
                     succesfull = -1
+                    print("Sudoku Generation Failed :" + str(countTries))
+                    countTries = countTries + 1
                     break
-
-                Sudoku[x][y] = RandomGenerator.GenerateRandom(cands)
+                else:
+                    Sudoku[x][y] = RandomGenerator.GenerateRandom(cands)
 
                 #Check if succesfull
                 if((x == 8) & (y == 8)):
