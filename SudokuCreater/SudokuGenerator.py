@@ -1,6 +1,7 @@
 import RandomGenerator
 import CandidateChecker
 import ArrayTools
+import SudokuIOConverter
 
 #NOTE: evtl. x  / y vertauscht
 #NOTE: Doc Kommentare einbinden
@@ -40,4 +41,4 @@ def GenerateSudoku():
     return Sudoku
 
 if __name__ == "__main__":
-    print(GenerateSudoku())
+    SudokuIOConverter.printSudoku(GenerateSudoku())
